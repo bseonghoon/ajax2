@@ -9,14 +9,14 @@
 <title>Insert title here</title>
 
 <script>
-	var page = 2;
+	var page = 1;
 	$(document).ready(function() {
 		pagingData(page);
 	});
 
 	function pagingData(nowPage) {
 		$.ajax({
-			url : "./db/" + nowPage,
+			url : "./boardListInfo/" + nowPage,
 			dataType : "json",
 			type : 'get',
 			success : function(data) {
@@ -40,7 +40,7 @@
 	}
 
 	function markUp(data, i) {
-		var trTag = "<tr><td>"+data.id + "</td><td>" + data.name + "</td><td>" + data.birth + "</td>";
+		var trTag = "<tr><td>"+data.boardSeq + "</td><td>" + data.sellerId + "</td><td>" + data.title + "</td></tr>";
 		return trTag;
 	}
 </script>
@@ -49,7 +49,7 @@
 
 
 	<div>
-		<table id="table">
+		<table id="table" class=".table">
 		
 		</table>
 	</div>
